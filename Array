@@ -1,0 +1,79 @@
+#search and insert in unsorted array               
+def searchEle(a, x):
+    # Code here
+    for i in a:
+        if i == x:
+            return True
+            
+    return False
+    
+# fucntion must return true if 
+# insertion is successful or else
+# return false
+def insertEle(a, y, yi):
+    # Code here
+    if yi == 0:
+        a = [y] + a
+        return True
+    elif yi == len(a):
+        a = a + [y]
+        return True
+    else:
+        if yi > 0 and yi < len(a):
+                a = a[0:yi] + [y] + a[yi:]
+                return True
+    return False
+
+# fucntion must return true if 
+# deletion is successful or else
+# return false
+def deleteEle(a, z):
+    # Code here
+    if z not in a:
+        return True
+    else:
+        for i in range(0, len(a)-1):
+            if a[i] == z:
+                a[i:] = a[i+1:]
+        return True
+    return False
+
+
+
+#search and insert in sorted array
+# insertion
+l = [-1, 1, 2, 4, 7, 9]
+k = 12
+
+l1 = []
+if k < l[0]:
+    print ([k] + l)
+    
+elif k > l[-1]:
+    print (l + [k])
+    
+elif k > l[0] and k  < l[-1]:
+       for i in range(len(l)):
+           if l[i] < k and l[i+1] > k:
+               l = l[0:i+1] + [k] + l [i+1:]
+            
+       print(l)  
+       
+ 
+ # deletion in sorted array
+l = [-1, 1, 2, 4, 7, 9]
+k = 7
+
+l1 = []
+if k == l[0]:
+    print (l[1:])
+    
+elif k == l[-1]:
+    print (l[0:-1])
+    
+elif k > l[0] and k  < l[-1]:
+      for i in range(0,len(l)):
+            if l[i] == k:
+                l1 = l[0:i] + l[i+1:]
+                       
+                print(l1)
