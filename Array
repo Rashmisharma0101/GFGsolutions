@@ -77,3 +77,14 @@ elif k > l[0] and k  < l[-1]:
                 l1 = l[0:i] + l[i+1:]
                        
                 print(l1)
+
+
+'''Find the element that appears once in an array 
+where every other element appears twice'''
+l = [0, -1,-1, 1, 1, 2,2]
+l1 = []
+for i in l:
+    if l.count(i) == 1:
+         l1.append(i)
+print(l1)    
+        
