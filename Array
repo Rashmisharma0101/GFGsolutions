@@ -240,3 +240,65 @@ def floorceiling(l):
                    print("floor = ", floor, "ceil = ", ceiling)
           
 floorceiling(l)
+
+
+'''Given an array of integers. Find a peak element in it. 
+An array element is a peak if it is NOT smaller than its neighbours. 
+For corner elements, we need to consider only one neighbour. '''
+
+
+l = [10, 20, 15, 2, 23, 90, 67]
+l1, l2 = [], []
+size = len(l)
+
+def peak(l):
+        for i in range(len(l)-2):            
+                if l[i] ==  l[i+1]:
+                    l1.append(l[i])
+                        
+        
+        else:
+            
+            for i in range(len(l)):
+                if i !=0 and i != size - 1: 
+                    if not l[i] < l[i-1] and not l[i] < l[i+1]:
+                        l1.append(l[i])
+                elif i == 0:
+                    if not l[i] < l[i+1]:
+                        l1.append(l[i])
+                        
+                elif i == size - 1: 
+                    if not l[i] < l[i-1]:
+                        l1.append(l[i])
+
+(peak(l))
+
+
+            
+print(", ".join ([str(i) for i in set(l1)]))
+
+if l1 == []:
+    print("-1")        
+
+
+'''Given an unsorted array arr of nonnegative integers 
+and an integer sum, find a continuous subarray which adds to a given sum.
+ There may be more than one subarrays with sum as the given sum, 
+ print first such subarray.  '''
+
+
+l = [1, 4, 0, 0, 3, 10, 5]
+l1, l2 = [], []
+size = len(l)
+sums = 7
+def subarray(l):
+    for i in range(size):
+        for j in range (i, size ):
+            if sum(l[i : j+1]) == sums:
+                return (l[i : j+1], "subarray between indexes", i, j)
+
+                break    
+    
+    return ("there  is no subarray")
+    
+print((subarray(l)))
