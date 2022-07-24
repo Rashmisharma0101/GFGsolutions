@@ -136,3 +136,107 @@ for  i in l2:
         l2.remove(i) # first instance of duplicate element is removed from list
 if l2 :
     print(l2)
+
+
+'''Find a triplet that sum to a given value'''
+l = [12, 3, 4, 1, 6, 9, 13, 14, 15, 16, 17, 18, 19, 20]
+s = len(l)
+sums = 24
+l1, l2 = [], []
+
+for i in range(s):
+    for j in range(i+1, s):
+        for k in range(i+2, s):
+            if l[i] + l[j] + l[k] == sums and (l[i]!=l[j] != l[k]):
+                l1.append([l[i], l[j], l[k]])
+                
+#print(l1)
+#print()
+
+if l1:
+    for i in l1:
+            l2.append((sorted(i)))
+            
+    for i in l2:
+        if l2.count(i) > 1:
+             l2.remove(i)           
+    
+    
+    #print(l2)
+                    
+    for i in l2:
+            for j in i:
+                print(','.join([str(j) for j in i]))
+                break
+elif l1 == []:
+    print("no such triplet exists")
+    
+    
+'''Write a function which takes an array and 
+prints the majority element (if it exists), 
+otherwise prints “No Majority Element”. 
+A majority element in an array A[] of size n 
+is an element that appears more than n/2 times 
+(and hence there is at most one such element). '''
+
+
+l = [3, 3, 4, 2, 4, 4, 2, 4]
+l1 = []
+def majority(l):
+    size = len(l)
+    comp = size // 2
+    for i in l:
+        if l.count(i) > comp:
+            return i
+    
+    return ("no such element exists")
+
+print(majority(l))  # check hash logic too
+
+'''find equil index - Equilibrium index of an array is an index such that
+ the sum of elements at lower indexes is equal to the sum of elements at 
+ higher indexes. '''
+
+
+l = [-1, 2, 3]
+l1 = []
+def equilindex(l):
+    for i in range(len(l)):
+        a = l[0:i]
+        b = l[i+1:]
+        if sum(a) == sum (b):
+            return i
+            break
+    
+    return -1
+
+print(equilindex(l))
+
+'''find equil index - Equilibrium index of an array is an index such that
+ the sum of elements at lower indexes is equal to the sum of elements at 
+ higher indexes. '''
+
+
+l = [1, 2, 8, 10, 10, 12, 19]
+l1 = []
+def floorceiling(l):
+        x = 8
+        if x > l[-1]:
+            print("floor = ",  l[-1], "ceil doesn't exist in array, ")
+            
+        elif x < l[0]:
+            print("floor doesn't exist in array", "ceil = ", l[0])
+        else:
+            l.append(x)
+            l.sort()
+            #print(l) 
+            a = l[0:l.index(x)]
+            b = l[l.index(x)+1:]
+            #print(a)
+            #print(b)
+            if a and b:
+                   floor = a[-1]
+                   ceiling = b[0]
+                   print("floor = ", floor, "ceil = ", ceiling)
+          
+floorceiling(l)
