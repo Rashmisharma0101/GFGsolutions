@@ -1,1 +1,44 @@
+'''Given an array of integers, print the array in such a way that the 
+first element is first maximum and second element is first minimum and so on'''
+
+l = [1, 6, 9, 4, 3, 7, 8, 2]
+
+l1 = []
+l.sort()
+
+print(l)
+
+
+while (len(l) >= 0):
+    for j in range(len(l)-1, 0, -1):
+            print(l[j], end = " ")
+            del(l[j])
+            #print(l)
+            break
+    for i in range(len(l)):
+            print(l[i], end = " ")
+            
+            del(l[i])
+            #print(l)
+            break
+
+'''Given an array of integers, print the array in such a way that the 
+first element is first maximum and second element is first minimum and so on'''
+
+l = [10, 5, 6, 3, 2, 20, 100, 80]
+
+l1 = []
+l.sort()
+
+print(l)
+
+for i in range(0, len(l)-1, 2):   
+    temp = l[i+1]
+    
+    l[i+1] = l[i]
+    
+    l[i] = temp
+     
+print("final list in wave form", l)
+
 
