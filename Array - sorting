@@ -42,3 +42,22 @@ for i in range(0, len(l)-1, 2):
 print("final list in wave form", l)
 
 
+'''Given an array of n distinct elements and a number x, 
+arrange array elements according to the absolute difference with x, 
+i. e., an element having minimum difference comes first, and so on. 
+Note: If two or more elements are at equal distance 
+arrange them in the same sequence as in the given array.'''
+
+#Output : = {5, 9, 10, 3, 2}
+
+key = [1, 2, 3, 4, 5]
+x = 6
+value = []
+for i in key:
+    value.append(abs(x - i))
+print(value)
+
+res = {key[i] : value[i] for i in range(len(key))}
+print(res)
+
+[print(key, end = " ") for (key, value) in sorted(res.items() , key=lambda x: x[1])]
