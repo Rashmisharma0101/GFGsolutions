@@ -61,3 +61,71 @@ res = {key[i] : value[i] for i in range(len(key))}
 print(res)
 
 [print(key, end = " ") for (key, value) in sorted(res.items() , key=lambda x: x[1])]
+
+
+'''Given an array, A of size N consisting of elements 1 to N. 
+A boolean array B consisting of N-1 elements indicates that if B[i] is 1, 
+then A[i] can be swapped with A[i+1]. 
+Find out if A can be sorted by swapping elements.'''
+
+#Output : A can be sorted
+
+a = [2, 3, 1, 4, 5, 6]
+b = [0, 1, 1, 1, 1]
+#flag = 0
+
+for i in range(len(a)-1):
+    for j in range (len(b)-1):
+        if b[j] == 1 and i == j:
+            if a[i] > a[i+1]:
+                a[i], a[i+1] = a[i+1], a[i]
+            elif a[i] < a[i+1]:
+                a[i], a[i+1] = a[i], a[i+1]
+    
+        elif b[j] == 0 and i == j:
+            a[i], a[i+1] = a[i], a[i+1]
+             
+           
+print(a)    
+
+
+if a == sorted(a):
+    print("list can be sorted")
+    
+else:
+    print("list can not be sorted")
+    
+    '''Print the elements of an array in the decreasing frequency 
+if 2 numbers have same frequency then print the one which came first. '''
+
+# output - [8, 8, 8, 2, 2, 5, 5, 6]
+
+l = [2, 5, 2, 8, 5, 6, 8, 8]
+l1 = l.copy()
+l2, l3, l4 = [], [], []
+
+for i in l1:
+    if i not in l3:
+        l2.append((i, l1.count(i)))
+        l3.append(i)
+print(l2)
+
+for i in l2:
+    
+        print(str(i[0])*i[1])
+        
+
+for i in l2:
+    
+        l4.append((str(i[0])*i[1]))
+
+print(l4)
+
+
+l4.sort(key = len)
+
+l4.reverse()
+print(l4)
+
+for i in l4:
+    print(int(i), end = ", ")
