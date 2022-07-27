@@ -190,3 +190,23 @@ for i in range(len(l)-1):
        
 print(l)
 print(count)
+
+
+'''Minimum number of swaps required to sort an array '''
+
+
+l = [1, 5, 4, 3, 2]
+l1 = sorted(l)
+
+c = 0
+
+
+for i in range(len(l)-1):
+    if l[i] != l1[i]:
+        ind = l1.index(l[i])
+        l[ind], l[i] = l[i], l[ind]
+        c = c + 1
+    
+       
+print(l)
+print("minimum number of swaps needed", c)
