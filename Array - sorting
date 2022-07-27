@@ -129,3 +129,64 @@ print(l4)
 
 for i in l4:
     print(int(i), end = ", ")
+
+
+
+'''Print the elements of an array in the decreasing frequency 
+if 2 numbers have same frequency then print the one which came first. '''
+
+# output - [8, 8, 8, 2, 2, 5, 5, 6]
+
+l = [2, 5, 2, 6, -1, 9999999, 5, 8, 8, 8]
+l1 = l.copy()
+l2, l3, l4 = [], [], []
+
+l.sort()
+print(l)
+
+for i in l:
+    l2.append([i, l.count(i)])
+    
+print(l2)
+
+l2.sort(key = lambda l2: l2[1], reverse =  True)
+
+print(l2)
+for item in l2:
+   l3.append(((item[0])))
+print(l3)  # sorting according to original list if frequency is same not working
+
+
+'''Count Inversions in an array | Set 1 (Using Merge Sort) '''
+
+
+l = [3, 1, 2]
+
+l1 = sorted(l)
+count_inversions = 0
+while (l != l1):
+    for i in range(len(l)-1):
+       if i < i + 1 and l[i] > l[i+1]:
+           l[i], l[i+1] = l[i+1], l[i]
+           count_inversions = count_inversions + 1
+       
+       
+print(l)
+print(count_inversions)
+
+#Another method of above question - count how many numbers are larger than current number, that many ineversions are there
+'''Count Inversions in an array | Set 1 (Using Merge Sort) '''
+
+
+l = [8, 4, 2, 1]
+
+count = 0
+count_inversions = 0
+for i in range(len(l)-1):
+    for j in range(i+1, len(l)):
+        if l[i] > l[j]:
+            count = count + 1
+       
+       
+print(l)
+print(count)
