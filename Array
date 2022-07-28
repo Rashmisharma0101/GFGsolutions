@@ -302,3 +302,48 @@ def subarray(l):
     return ("there  is no subarray")
     
 print((subarray(l)))
+
+
+'''Sort an array of 0s, 1s and 2s | Dutch National Flag problem 
+
+Given an array A[] consisting only 0s, 1s and 2s. 
+The task is to write a function that sorts the given array. 
+The functions should put all 0s first, then all 1s and all 2s in last
+'''
+
+
+l = [0, 1, 2, 0, 1, 2]
+#output  {0, 0, 1, 1, 2, 2}
+
+
+i = 0
+for i in range(len(l)):
+    for j in range(i + 1, len(l)):
+        if l[i] > l[j]:
+            l[i], l[j] = l[j] , l[i]
+            
+print(l)
+
+'''Merge two sorted arrays with O(1) extra space
+
+We are given two sorted arrays. We need to merge these two arrays 
+such that the initial numbers (after complete sorting) are in the first array 
+and the remaining numbers are in the second array. 
+Extra space is allowed in O(1).
+'''
+
+
+l1 = [1, 5, 9, 10, 15, 20]
+l2 = [2, 3, 8, 13]
+
+for i in range(len(l1)):
+    for j in range(len(l2)):
+        if l1[i] > l2[j]:
+            l1[i], l2[j] = l2[j], l1[i]
+            for k in range(len(l2)):
+                for l in range(k + 1, len(l2)):
+                    if l2[k] > l2[l]:
+                        l2[k], l2[l] = l2[l], l2[k]
+                
+print(l1)
+print(l2)
