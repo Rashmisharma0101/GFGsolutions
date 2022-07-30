@@ -1,1 +1,24 @@
+'''Given an array of integers arr[] of size N and an integer, 
+the task is to rotate the array elements to the left by d positions.
+
+Input: 
+arr[] = {1, 2, 3, 4, 5, 6, 7}, rot = 2
+Output: 3 4 5 6 7 1 2
+
+'''
+l = [1, 2, 3, 4, 5, 6, 7]
+rot = 2
+
+
+temp, l2 =[], []
+temp.append(l[rot :])
+temp.append(l[0:rot])
+print(temp)
+
+for i in temp:
+    for j in i:
+        l2.append(j)
+    
+print(l2)
+
 
