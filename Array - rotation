@@ -22,3 +22,80 @@ for i in temp:
 print(l2)
 
 
+'''Maximum sum of i*arr[i] among all rotations of a given array
+
+Given an array arr[] of n integers, 
+find the maximum that maximizes the sum of the value of i*arr[i] 
+where i varies from 0 to n-1.
+
+Input: 
+arr[] = {8, 3, 1, 2}
+Output: 29
+
+'''
+l = [3, 2, 1]
+n = len(l)
+
+i = 1
+temp, l2, l3, l4 = [], [], [], []
+while (i <= n):
+    temp, l2  = [], []
+    temp.append(l[i:])
+    temp.append(l[0 : i])
+    #print(temp)
+    for k in temp:
+        for m in k:
+            l2.append(m)
+    l3.append(l2)
+    #print(l2)
+    
+    i = i + 1            
+    
+#print(l3)
+s = 0
+for i in range(len(l3)):
+    s = 0
+    for j in l3[i]:
+        s = s + (j * l3[i].index(j))
+        l4.append(s)
+
+print(max(l4))
+        
+
+'''Find the Rotation Count in Rotated Sorted array
+
+Given an array arr[] of size N having distinct numbers 
+sorted in increasing order and the array has been right rotated 
+(i.e, the last element will be cyclically shifted to the starting 
+ position of the array) k number of times, 
+the task is to find the value of k.
+
+Input: 
+arr[] = {15, 18, 2, 3, 6, 12}
+Output: 2
+
+'''
+
+l = [7, 9, 11, 12, 5]
+l1 = sorted(l)
+n = len(l)
+i = 1
+temp, l2, l3, l4 = [], [], [], []
+c = 0
+while (i <= n):
+    if l2 == l1:
+        break
+    else:
+        temp, l2  = [], []
+        temp.append(l[i:])
+        temp.append(l[0 : i])
+        #print(temp)
+        for k in temp:
+            for m in k:
+                l2.append(m)
+        #print(l2)
+        c = c + 1
+        
+        i = i + 1 
+        
+print(c)
