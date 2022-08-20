@@ -26,3 +26,5 @@ for i in range(s):
         A[i] = -1
         
 print(A)
+
+
