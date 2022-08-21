@@ -28,3 +28,133 @@ for i in range(s):
 print(A)
 
 
+'''Given an array of n elements. 
+Our task is to write a program to rearrange 
+the array such that elements at even positions 
+are greater than all elements before it and elements 
+at odd positions are less than all elements before it.
+
+Input : arr[] = {1, 2, 3, 4, 5, 6, 7}
+Output : 4 5 3 6 2 7 1
+
+'''
+import math
+# find number of odd and even positions
+origl = [1, 2, 3, 4, 5, 6, 7]
+l = origl.copy()
+l.sort(reverse = True)
+#print(l)
+s = len(l)
+
+x = s / 2
+#print(x)
+even_pos  = math.ceil(x)
+#print(even_pos)
+
+odd_pos = s - even_pos
+#print(odd_pos)
+
+## ssplitting list into two halves and merging them later by loops
+if len(l)%2 != 0:
+    list2 = (l[even_pos-1:])
+else:
+    list2 = (l[even_pos:])
+
+#print(list2)
+
+list1 = (l[0:odd_pos])
+list1.reverse()
+#print(list1)
+
+finallist = []
+
+for i in range(len(list2)):
+    for j in range(len(list1)):
+        if i == j:
+            finallist.append(list2[i])
+            finallist.append(list1[j])
+            
+for i in list2:
+    if i not in finallist:
+        finallist.append(i)
+        
+
+for j in list1:
+    if j not in finallist:
+        finallist.append(j)
+    
+print(finallist)
+
+
+
+'''Given an array of positive and negative numbers, 
+arrange them in an alternate fashion such that every 
+positive number is followed by a negative and vice-versa 
+maintaining the order of appearance. 
+
+Input:  arr[] = {1, 2, 3, -4, -1, 4}
+Output: arr[] = {-4, 1, -1, 2, 3, 4}
+
+Input:  arr[] = {-5, -2, 5, 2, 4, 7, 1, 8, 0, -8}
+Output: arr[] = {-5, 5, -2, 2, -8, 4, 7, 1, 8, 0}
+
+'''
+l = [-5, -2, 5, 2, 4, 7, 1, 8, 0, -8]
+list1, list2 = [], []
+
+## split the list into two lists, one having positivex numbers, other having negative numbers
+for i in l :
+    if  i < 0:
+        list2.append(i)
+    else:
+        list1.append(i)
+
+
+'''print(list1)
+print(list2)'''
+
+
+finallist = []
+
+for i in range(len(list2)):
+    for j in range(len(list1)):
+        if i == j:
+            finallist.append(list2[i])
+            finallist.append(list1[j])
+            
+for i in list2:
+    if i not in finallist:
+        finallist.append(i)
+        
+
+for j in list1:
+    if j not in finallist:
+        finallist.append(j)
+    
+print(finallist)
+
+
+'''Move all zeroes to end of array 
+
+
+Given an array of random numbers, 
+Push all the zero’s of a given array to the end of the array. 
+
+The order of all other elements should be same. 
+
+Input :  arr[] = {1, 2, 0, 4, 3, 0, 5, 0};
+Output : arr[] = {1, 2, 4, 3, 5, 0, 0, 0};
+
+'''
+l = [1, 2, 0, 0, 0, 3, 6, -1]
+list1, list2 = [], []
+finallist = []
+for i in l :
+    if  i < 0 or i > 0:
+        finallist.append(i)
+for i in l:
+    if i == 0:
+        finallist.append(i)
+
+    
+print(finallist)
