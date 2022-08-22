@@ -1,0 +1,9 @@
+# simple yield function to retrieve inbetween values of iteration, (return cant be used as it returns single value)
+def func():
+    s=0
+    for i in range(10):
+        s= s + i
+        yield s 
+       
+for i in func():
+    print(i)
