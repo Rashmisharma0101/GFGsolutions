@@ -175,3 +175,145 @@ for i in range(len(l)):
             l[i], l[i-1] = l[i-1], l[i]
             
 print(l)
+
+
+'''Given an array of integers, 
+the task is to print the array in the order – 
+smallest number, the Largest number, 2nd smallest number, 
+2nd largest number, 3rd smallest number, 3rd largest number, and so on…..
+
+Input : arr[] = [5, 8, 1, 4, 2, 9, 3, 7, 6]
+Output :arr[] = {1, 9, 2, 8, 3, 7, 4, 6, 5}
+
+'''
+
+import math
+# find number of odd and even positions
+origl = [5, 8, 1, 4, 2, 9, 3, 7, 6]
+l = origl.copy()
+l.sort(reverse = True)
+print(l)
+s = len(l)
+
+x = s / 2
+#print(x)
+even_pos  = math.ceil(x)
+#print(even_pos)
+
+odd_pos = s - even_pos
+#print(odd_pos)
+
+## splitting list into two halves and merging them later by loops
+if len(l)%2 != 0:
+    list2 = (l[even_pos-1:])
+else:
+    list2 = (l[even_pos:])
+list2.reverse()
+print(list2)
+
+list1 = (l[0:odd_pos])
+#list1.reverse()
+print(list1)
+
+finallist = []
+
+for i in range(len(list2)):
+    for j in range(len(list1)):
+        if i == j:
+            finallist.append(list2[i])
+            finallist.append(list1[j])
+            
+for i in list2:
+    if i not in finallist:
+        finallist.append(i)
+        
+
+for j in list1:
+    if j not in finallist:
+        finallist.append(j)
+    
+#finallist.reverse()
+print(finallist)
+
+
+'''Given two integer arrays of same size,
+ “arr[]” and “index[]”, reorder elements in “arr[]” 
+ according to given index array.
+ 
+ Input:  arr[]   = [10, 11, 12];
+        index[] = [1, 0, 2];
+Output: arr[]   = [11, 10, 12]
+        index[] = [0,  1,  2] 
+        
+'''
+arr   = [50, 40, 70, 60, 90]
+index = [3,  0,  4,  1,  2]
+
+res = {index[i]: arr[i] for i in range(len(index))}
+print(res)
+
+list1 = []
+
+for i in sorted(res):
+        list1.append(res[i])
+        
+print(list1)
+
+
+''' Move all negative elements to end in order with extra space allowed
+
+Given an unsorted array arr[] of both negative and positive integer. 
+The task is place all negative element at the end of array without 
+changing the order of positive element and negative element. 
+
+Input : arr[] = {1, -1, 3, 2, -7, -5, 11, 6 }
+Output : 1  3  2  11  6  -1  -7  -5 
+
+Input : arr[] = {-5, 7, -3, -4, 9, 10, -1, 11}
+Output : 7  9  10  11  -5  -3  -4  -1  
+
+'''
+l = [-5, 7, -3, -4, 9, 10, -1, 11]
+list1, list2 = [], []
+finallist = []
+
+for i in l :
+    if  i > 0:
+        finallist.append(i)
+for i in l:
+    if i < 0:
+        finallist.append(i)
+
+    
+print(finallist)
+
+
+''' Segregate even and odd numbers 
+
+Given an array arr[] of integers, segregate even and 
+odd numbers in the array. Such that all the even numbers 
+should be present first, and then the odd numbers.
+
+
+Input: arr[] = 1 9 5 3 2 6 7 11
+Output: 2 6 5 3 1 9 7 11
+
+Input: arr[] = 1 3 2 4 7 6 9 10
+Output:  2 4 6 10 7 1 9 3
+
+'''
+l = [1, 9,8, 5, 3, 2, 6, 7, 11]
+
+
+list1, list2 = [], []
+finallist = []
+
+for i in l :
+    if  i % 2 == 0:
+        finallist.append(i)
+for i in l:
+    if i % 2 != 0:
+        finallist.append(i)
+
+    
+print(finallist)
