@@ -158,3 +158,20 @@ for i in l:
 
     
 print(finallist)
+
+
+'''Rearrange array such that even positioned are lesser than odd
+Input : A[] = {1, 2, 2, 1}
+Output :  1 2 1 2
+
+'''
+l = [1,2,2,1]
+
+for i in range(len(l)):
+    if i % 2 == 0 and l[i] > l[i-1]:
+        l[i], l[i-1] = l[i-1], l[i]
+        
+    elif i % 2 != 0 and l[i] < l[i-1]:
+            l[i], l[i-1] = l[i-1], l[i]
+            
+print(l)
