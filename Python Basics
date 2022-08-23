@@ -7,3 +7,123 @@ def func():
        
 for i in func():
     print(i)
+
+
+'''Python | Remove tuples having duplicate first value from given list of tuples'''
+
+
+l = [(12.121, 'Geeksforgeeks is best'), 
+         (19212.22, 'India is best'), 
+         (12.121, 'Cyware is best.'),
+         (923232.2323, 'Jiit is best')]
+l1 = []
+visited = set()
+for i , j in l:
+    if i not in visited:
+            
+        l1.append((i, j))
+        visited.add(i)
+        
+print(l1)
+        
+''' Python | Combining tuples in list of tuples'''
+test_list = [([1, 2, 3], 'gfg'), ([5, 4, 3], 'cs')]
+
+l1  = []
+
+for i, j in test_list:
+    for k in i:
+        l1.append((k,j))
+        
+print(l1)
+
+
+'''Python program to find tuples which have all elements divisible by K from a list of tuples'''
+l = [(6, 24, 12), (60, 10, 5), (12, 18, 21)]
+
+c = 5
+
+l1  = []
+
+for i,j,k in l:
+    if i % c == 0 and j % c == 0 and k % c == 0:
+        l1.append((i,j,k))
+        
+print(l1)
+
+
+'''Given a list of tuples. The task is to get all the tuples 
+that have all positive elements.
+
+Input : test_list = [(4, 5, 9), (-3, 2, 3), (-3, 5, 6), (4, -6)] 
+Output : [(4, 5, 9)] 
+Explanation : Extracted tuples with all positive elements.
+
+Input : test_list = [(-4, 5, 9), (-3, 2, 3), (-3, 5, 6), (4, -6)] 
+Output : [] 
+Explanation : No tuple with all positive elements. '''
+
+l = [(4, 5, -9), (-3, 2, 3), (-3, 5, 6), (4, -6)] 
+
+l1  = []
+
+for i  in l:
+    for j in sorted(i):
+        if j>0 and i not in l1:
+            l1.append(i)
+        else:
+            break
+
+print(l1)  
+
+
+'''Given a list of tuples, the task is to find all 
+those tuples containing the given element, say n.
+
+'''
+l = [(14, 3),(23, 41),(33, 62),(1, 3),(3, 3)] 
+n = 3
+
+l1 = []
+for i, j in l:
+    if i == n or j == n:
+        if (i,j) not in l1:
+            l1.append((i,j))
+
+print(l1)
+
+'''Given two strings (of lowercase letters), a pattern and a string. 
+The task is to sort string according to the order defined by pattern 
+and return the reverse of it. It may be assumed that pattern has all 
+characters of the string and all characters in pattern appear only once.
+
+'''
+
+pat = "mgewqnasibkldjxruohypzcftv"
+string = "niocgd"
+
+new_string = ""
+
+for i in pat:
+    for j in string:
+        if i == j:
+          new_string = new_string  + i
+          
+final = new_string[::-1]
+print(final)
+
+
+'''we need to perform the sort operation in all the Strings that are present in a list.
+
+
+The original list : ['gfg', 'is', 'good']
+List after string sorting : ['fgg', 'is', 'dgoo']
+
+'''
+
+l1  = []
+l = ['gfg', 'is', 'good']
+for i in l:
+    l1.append("".join(sorted(i)))
+    
+print(l1)
