@@ -1,0 +1,134 @@
+'''change some letters to other in a string'''
+
+str = "geeks"
+  
+str1 = "gks"
+str2 = "abc"
+
+
+# using maketrans() to map elements of str2 with str1
+mapped = str.maketrans( str1, str2 )
+  
+# using translate() to translate using the mapping
+print ("The string after translation using mapped elements is : ")
+print  (str.translate(mapped) )
+
+REGULAR EXPRESSIONS
+''' output - ['elonmusk', 'teslarati', 'dummy_tesla', 'dummy_2_tesla']'''
+import re
+
+text = '''
+Follow our leader Elon musk on twitter here: https://twitter.com/elonmusk, more information 
+on Tesla's products can be found at https://www.tesla.com/. Also here are leading influencers 
+for tesla related news,
+https://twitter.com/teslarati
+https://twitter.com/dummy_tesla
+https://twitter.com/dummy_2_tesla
+'''
+pattern = 'twitter\.com/([a-z | 0-9 |_]*)'
+
+matches = re.findall(pattern, text)
+print(matches)
+
+import re
+text = '''
+Tesla's gross cost of operating lease vehicles in FY2021 Q1 was $4.85 billion.
+BMW's gross cost of operating vehicles in FY2021 S1 was $8 billion.
+'''
+
+pattern = 'FY(\d{4} [A-Z][0-9])'
+matches = re.findall(pattern, text)
+print(matches)
+
+
+''''Count and display vowels in a string'''
+
+s  = 'Geeks for Geeks'
+
+from collections import defaultdict
+
+c = 0
+l1  = []
+for i in s:
+    if i == 'a' or i == 'e' or i == 'i' or i == 'o' or i == 'u':
+        c = c + 1
+        if (i, s.count(i)) not in l1:
+            l1.append((i, s.count(i)))
+            
+        
+print(l1)
+print(c)
+
+d = defaultdict(list)
+
+
+for key, value in l1:
+    d[key].append(value)
+
+print(d)  
+
+'''Check for URL in a String'''
+
+string = '''My Profile: https://auth.geeksforgeeks.org/user/Chinmoy%20Lenka/articles 
+in the portal of https://www.geeksforgeeks.org/'''
+
+import re
+
+pattern = 'https:[^" "]*'
+
+matches = re.findall(pattern, string)
+
+print(matches)
+
+'''Check if a Substring is Present in a Given String
+
+Input : Substring = "geeks" 
+           String="geeks for geeks"
+           
+output : yes
+'''
+string = "geeks for geeks"
+
+import re
+
+pattern = 'geeks'
+
+matches = re.findall(pattern, string)
+
+if matches:
+    print("yes")
+    
+else:
+    print("no")
+    
+'''Check if Two Strings are Anagram
+
+An anagram of a string is another string that contains the same characters, 
+only the order of characters can be different. 
+
+Input : s1 = "listen"
+        s2 = "silent"
+Output : The strings are anagrams.
+
+Input : s1 = "dad"
+        s2 = "bad"
+Output : The strings aren't anagrams.
+'''
+
+s1  = "listen"
+s2  = "silent"
+
+flag = True
+
+for i in s1:
+    if i not in s2:
+        flag = False
+        
+for j in s2:
+    if j not in s1:
+        flag= False
+        
+if flag:
+    print("is a  anagram")
+else:
+    print("not a anagram")
