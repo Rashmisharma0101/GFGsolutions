@@ -127,3 +127,122 @@ for i in l:
     l1.append("".join(sorted(i)))
     
 print(l1)
+
+
+'''Python – Length of shortest string in string list
+
+
+The original list : ['gfg', 'is', 'best', 'a']
+Length of minimum string is : 2
+    '''
+    
+l  = ['gfg', 'is', 'best', 'a']
+
+l1  = []
+
+shortest  = 100
+for i in l:
+    
+    if len(i) < shortest:
+   
+        l1 = i
+        shortest =  len(i)
+        
+print(l1)
+
+
+'''Remove front K characters from each string in String List
+
+The original list : ['Manjeet', 'Akash', 'Akshat', 'Nikhil']
+The list after removing initial K characters : ['jeet', 'sh', 'hat', 'hil']
+
+'''
+
+l = ['Manjeet', 'Akash', 'Akshat', 'Nikhil']
+
+k  = 3
+
+l1 = []
+
+for i in l:
+    l1.append(i[3:])
+
+print(l1)    
+
+'''Remove String from String List
+
+Original list is : ['bad', 'GeeksforGeeks', 'bad', 'is', 'best', 'bad']
+Modified list is : ['GeeksforGeeks', 'is', 'best']
+
+'''
+
+l = ['bad', 'GeeksforGeeks', 'bad', 'is', 'best', 'bad']
+
+
+l1  = []
+
+for i in l:
+    if l.count(i) > 1:
+        continue
+    else:
+        l1.append(i)
+        
+print(l1)
+
+'''Delimited String List to String Matrix
+
+
+The original list is : ['gfg:is:best', 'for:all', 'geeks:and:CS']
+The list after conversion : [['gfg', 'is', 'best'], ['for', 'all'], ['geeks', 'and', 'CS']]
+
+'''
+
+l  = ['gfg:is:best', 'for:all', 'geeks:and:CS']
+
+
+l1  = []
+
+for i in range(len(l)):
+    l1.append((str(l[i]).split(":")))
+    
+print(l1)
+
+'''string is palindrome or not'''
+
+s  = 'geeks'
+
+flag  =  False
+
+for i in s:
+    for j in s[::-1]:
+        if i  == j:
+            flag = True
+        else:
+            flag = False
+        
+if flag:
+    print("is a palindrome")
+    
+else:
+    print("not a  palindrome")
+    
+    
+''' Given a string, find all the duplicate characters which are similar to each other
+
+Input : hello
+Output : l
+
+Input : geeksforgeeeks
+Output : e g k s
+
+'''
+
+s = 'geeksforgeeeks'
+s1 = ''
+
+for i in s:
+    if s.count(i) > 1 and i not in s1:
+        s1 = s1 + i
+        
+print(s1)
+
