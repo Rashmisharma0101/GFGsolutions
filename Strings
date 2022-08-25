@@ -132,3 +132,28 @@ if flag:
     print("is a  anagram")
 else:
     print("not a anagram")
+
+'''We are given a sentence of english language(can also contain digits), 
+we need to compute and print the sum of ASCII values of characters of each word in that sentence.'''
+
+s  = ' GeeksforGeeks, a computer science portal for geeks'
+
+sums  = 0
+
+l = []
+
+l = list(s.split(" "))
+#print(l)
+
+l1  = []
+for i in l:
+    if i !=  "":
+        l1.append(i)
+    
+print(l1)
+
+for i in l1:
+    for j in i:
+        sums = sums  + ord(j)
+    
+print("sum of ascii code of words in list is : ", sums)
