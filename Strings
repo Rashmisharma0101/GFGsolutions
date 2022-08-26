@@ -157,3 +157,234 @@ for i in l1:
         sums = sums  + ord(j)
     
 print("sum of ascii code of words in list is : ", sums)
+
+'''Given a name, print the initials of a name(uppercase) 
+with last name(with first alphabet in uppercase) written in full separated by dots. 
+
+Input : geeks for geeks
+Output : G.F.Geeks'''
+
+s1 = 'mohandas karamchand gandhi'
+
+s = s1.title()
+
+l1 = list(s.split(" "))
+
+#print(l1)
+
+l2 = []
+
+l3 = l1[:-1]
+#print(l3)
+
+for i in l3:
+    l2.append((i[0], "."))
+
+   
+#l2.append(l1[-1])
+        
+#print(l2)
+
+l4  = []
+
+for (i,j) in l2:
+    l4.append(i + j)
+    
+#print(l4)
+
+l5 = l4 + [l1[-1]]
+#print(l5)
+
+snew = ''
+for i in l5:
+    snew = snew + i
+    
+print(snew)
+
+'''Find the k most frequent words from data set in Python
+
+Input : "John is the son of John second. 
+         Second son of John second is William second."
+Output : [('second', 4), ('John', 3), ('son', 2), ('is', 2)]'''
+
+s1 = '''John is the son of John second. Second son of John second is William second.'''
+
+s1 = s1.upper()
+s =  s1.replace(".", "")
+
+print(s)
+l1 = []
+
+l = s.split()
+for i in l:
+    if (i, l.count(i)) not in l1:
+        l1.append((i, l.count(i)))
+
+print(l1)
+
+OR
+s = s.upper()
+
+s1 = s.replace(".", " ")
+
+from collections import Counter
+
+l = s1.split()
+
+print(l)
+Counter = Counter(l)
+
+most_occur = Counter.most_common(4)
+
+print(most_occur)
+
+We need to find all possible close good enough matches of input string 
+into list of pattern strings.
+
+Examples:
+
+Input : patterns = ['ape', 'apple', 
+                  'peach', 'puppy'], 
+          input = 'appel'
+Output : ['apple', 'ape']'''
+BRUTE FORCE
+l = ['ape', 'apple', 'peach', 'puppy']
+
+c = 'appel'
+
+counter = 0
+
+import math
+
+first_letter = c[0]
+
+value = math.ceil(len(c) / 2)
+
+for i in l:
+    for j in i:
+        if j in c:
+            counter = counter + 1
+
+l1 = []            
+
+for i in l:
+    for j in i:
+        if i[0] == first_letter and counter >= value and i not in l1:
+            l1.append(i)
+            
+print(l1)
+
+OR
+
+from difflib import get_close_matches
+  
+ans = get_close_matches(c, l)
+
+print(ans)
+
+'''Given K and a binary number, 
+check if there exists k consecutive 1’s in the binary number.'''
+
+l = '11100000'
+
+k = 5
+
+count  = 0
+
+for i in range(len(l)-1):
+    #for j in range(i + 1, len(l)):
+        j = i + 1
+        if l[i] == '1' and l[j] == '1':
+            count = count + 1
+        else:
+            continue
+            
+ans = count + 1
+print(ans)
+
+if ans == k:
+    print('yes')
+else:
+    print('no')
+    
+'''Two strings are given and you have to modify 1st string 
+such that all the common characters of the 2nd string have 
+to be removed and the uncommon characters of the 2nd string 
+have to be concatenated with uncommon characters of the 1st string. 
+
+Input : S1 = "aacdb"
+        S2 = "gafd"
+Output : "cbgf"
+
+Input : S1 = "abcs";
+        S2 = "cxzca";
+Output : "bsxz" '''
+
+s1 = "abcs"
+
+s2 = "cxzca"
+
+s3 = ''
+
+for i in s1:
+    if i not in s2 and i not in s3:
+        s3 = s3 + i 
+        
+for i in s2:
+    if i not in s1 and i not in s3:
+        s3  = s3 + i
+        
+print(s3)
+
+
+'''Given a string of lowercase characters only, 
+the task is to check if it is possible to split a string 
+from middle which will gives two halves having the same characters 
+and same frequency of each character. If the length of the given 
+string is ODD then ignore the middle element and check for the rest.
+
+Input : abbaab
+Output : NO
+
+Input : abccab
+Output : YES'''
+
+flag = True
+
+s1 = "abbaab"
+
+s3 = ''
+
+if len(s1) % 2 == 0:
+    mid = len(s1)//2 - 1
+    first_half = s1[0:mid + 1]
+    second_half = s1[mid + 1:]
+    
+
+else:
+    mid = len(s1)//2 -1
+    first_half = s1[0:mid + 1]
+    second_half = s1[mid + 2:]
+
+
+#print(first_half)
+#print(second_half)
+        
+for i in first_half:
+    if i not in second_half:
+        flag = False
+
+for i in second_half:
+    if i not in first_half:
+        flag = False
+
+
+for i in first_half:
+    for j in second_half:
+        if first_half.count(i) != second_half.count(i):
+            flag = False
+
+if flag:
+    print('yes')
+else:
+    print('no')
