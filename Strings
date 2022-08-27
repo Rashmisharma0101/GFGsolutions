@@ -388,3 +388,372 @@ if flag:
     print('yes')
 else:
     print('no')
+
+'''Find the first repeated word in a string in Python using Dictionary
+
+Input : "Ravi had been saying that he had been there"
+Output : had '''
+
+s = "he had had he"
+l = s.split()
+
+print(l)
+flag = True
+for i in l:
+    if l.count(i) > 1:
+        print(i)
+        flag = True
+        break
+    else:
+        flag = False
+        
+if flag == False:
+    print("no repetitions")
+    
+    
+'''Given a string and a number k, 
+find the k-th non-repeating character in the string. 
+Consider a large input string with lacs of characters 
+and a small character set. How to find the character by only doing 
+only one traversal of input string? Examples:
+
+Input : str = geeksforgeeks, k = 3
+Output : r'''
+
+s = "geeksforgeeks"
+k = 4
+l1 = []
+
+for i in s:
+    if s.count(i) == 1:
+        l1.append(i)
+
+#print(l1)      
+
+if k <= len(l1):
+    print(l1[k-1])
+else:
+    print("Less than k non-repeating characters in input.")
+    
+'''Given a string, find all the duplicate characters which are similar to each other.
+
+Input : hello
+Output : l
+
+Input : geeksforgeeeks
+Output : e g k s
+'''
+
+s = 'hello'
+l1  = ''
+
+for i in s:
+    if s.count(i) > 1 and i not in l1:
+        l1 = l1 + i
+        
+print(l1)
+
+OR
+
+from collections import Counter
+ 
+ 
+def find_dup_char(input):
+ 
+    # now create dictionary using counter method
+    # which will have strings as key and their
+    # frequencies as value
+    WC = Counter(input)
+ 
+    # Finding no. of  occurrence of a character
+    # and get the index of it.
+    for letter, count in WC.items():
+        if (count > 1):
+            print(letter)
+ 
+ 
+# Driver program
+if __name__ == "__main__":
+    input = 'geeksforgeeks'
+    find_dup_char(input)
+    
+'''Given an alphanumeric string, extract maximum numeric value from that string. 
+Alphabets will only be in lower case. Examples:
+
+Input : 100klh564abc365bg
+Output : 564
+Maximum numeric value among 100, 564 
+and 365 is 564.
+
+Input : abchsd0sdhs
+Output : 0
+
+'''
+
+import re
+
+s = '100klh564abc365bg'
+
+pattern = '\d[^a-zA-Z]*'
+
+matches = re.findall(pattern, s)
+print(max(matches))   
+
+'''Two strings are said to be complete if on concatenation, 
+they contain all the 26 English alphabets. 
+For example, “abcdefghi” and “jklmnopqrstuvwxyz” are
+complete as they together have all characters from ‘a’ to ‘z’.
+We are given two sets of sizes n and m respectively 
+and we need to find the number of pairs that are 
+complete on concatenating each string from set 1 to each string from set 2.
+
+Input : set1[] = {"abcdefgh", "geeksforgeeks",
+                 "lmnopqrst", "abc"}
+        set2[] = {"ijklmnopqrstuvwxyz", 
+                 "abcdefghijklmnopqrstuvwxyz", 
+                 "defghijklmnopqrstuvwxyz"} 
+Output : 7
+'''
+l1  = []
+s1 = {"abcdefgh", "geeksforgeeks", "lmnopqrst", "abc"}
+s2 = {"ijklmnopqrstuvwxyz", "abcdefghijklmnopqrstuvwxyz", "defghijklmnopqrstuvwxyz"}
+ch= 'abcdefghijklmnopqrstuvwxyz'
+for i in s1:
+    for j in s2:
+        if ch in (i + j) and (i,j) not in l1:
+            l1.append((i + j))
+
+for i in l1:
+    print(i)
+    
+    
+'''Given a sentence containing n words/strings. 
+Remove all duplicates words/strings which are similar to each others.
+
+Input : Geeks for Geeks
+Output : Geeks for
+
+'''
+
+s = 'Python is great and Java is also great'
+l = s.split()
+l1  = []
+
+for i in l:
+    if i not in l1:
+        l1.append(i)
+        
+#print(l1)
+
+for i in l1:
+    print(i, end = " ")
+    
+ 
+ 
+ '''Given a sentence, sort it alphabetically in ascending order.
+
+Input : to learn programming refer geeksforgeeks
+Output : geeksforgeeks learn programming refer to
+'''
+
+s = 'to learn programming refer geeksforgeeks'
+
+l = s.split()
+
+l = sorted(l)
+s1  = ''
+
+for i in l:
+    s1 = s1 +  i +" "
+
+print(s1)
+
+'''Given a long sentence, reverse each word of the sentence 
+individually in the sentence itself
+
+Input : Geeks For Geeks is good to learn
+Output : skeeG roF skeeG si doog ot nrael
+
+Input : Split Reverse Join
+Output : tilpS esreveR nioJ'''
+
+s = 'Geeks For Geeks is good to learn'
+
+l = s.split()
+
+s1  = ''
+new  = []
+for i in l:
+    new.append(i[::-1])
+
+print(new)
+new_sen = " ".join(new)
+print(new_sen)
+
+'''Given two strings, print all the common characters in lexicographical order. 
+
+string1 : geeks
+string2 : forgeeks
+
+Output : eegks
+
+'''
+
+s1 = 'geeks'
+s2 = 'forgeeks'
+
+s  = ''
+l1  = []
+
+if len(s1) > len(s2):
+    for i in s2:
+        if i in s1:           
+                s = s + i
+                
+else:
+    for i in s1:
+        if i in s2:                
+            s = s + i
+
+
+if s:                 
+    print("".join(sorted(s)))
+
+else:
+    print("nothing common")
+
+'''Given a string that has set of words and spaces, 
+write a program to move all spaces to front of string, by 
+raversing the string only once. 
+
+Input  : str = "move these spaces to beginning"
+Output : str = "    movethesespacestobeginning" '''
+
+s = "move these spaces to beginning"
+
+no_of_spaces = 0
+snew = ""
+for i in s:
+    if i == " ":
+        no_of_spaces = no_of_spaces +  1
+    else:
+        snew = snew + i
+        
+out = " " * (no_of_spaces) + snew
+
+print(out)
+
+'''Run length encoded - if the input string is ‘wwwwaaadexxxxxx’, 
+then the function should return ‘w4a3d1e1x6’ '''
+
+s = 'wwwwaaadexxxxxx'
+snew  = ""
+
+for i in s:
+    if i not in snew:
+        snew = snew + i + str(s.count(i))
+        
+print(snew)
+
+'''We are given a string and we need to remove all duplicates from it
+Input : geeksforgeeks 
+Output : efgkors'''
+
+s =  'geeksforgeeks'
+s1 = ""
+
+for i in s:
+    if i not in s1:
+        s1 = s1 + i
+        
+print("".join(sorted(s1)))
+
+'''Given a list of strings and a prefix value sub-string, 
+find all strings from given list of strings which contains given value as prefix
+
+Input : arr = ['geeksforgeeks', 'forgeeks', 
+               'geeks', 'eeksfor'], 
+       prefix = 'geek'
+Output : ['geeksforgeeks','geeks'] '''
+
+l = ['geeksforgeeks', 'forgeeks', 'geeks', 'eeksfor']
+
+prefix = 'geek'
+
+l1 = []
+
+for i in l:
+    if i.startswith(prefix):
+        l1.append(i)
+        
+print(l1)
+
+'''Given a string “str” and another string “sub_str”.
+ We are allowed to delete “sub_str” from “str” any number of times. 
+ It is also given that the “sub_str” appears only once at a time. 
+ The task is to find if “str” can become empty by removing “sub_str” again and again.'''
+
+s = "GEEGEEKSKS"
+s1 = "GEEKS"
+c = 0
+
+if s1 not in s:
+    print("not present")
+
+while len(s)>0:
+    if s1 in s:
+            s= s.replace(s1, "")
+            #print(len(s))
+            c = c + 1
+           
+
+
+if s == "":
+    print("yes")
+    print(c)
+    
+elif len(s)>0 and s != s1 :
+    print("no")
+    
+'''Given a string of size n, write functions to perform following operations on string.
+
+Left (Or anticlockwise) rotate the given string by d elements (where d <= n).
+Right (Or clockwise) rotate the given string by d elements (where d <= n).
+
+Input : s = "GeeksforGeeks"
+        d = 2
+Output : Left Rotation  : "eksforGeeksGe" 
+         Right Rotation : "ksGeeksforGee" '''
+         
+s = "GeeksforGeeks"
+
+d = 2
+
+left_rotation = s[d:] + s[0:d]
+right_rotation = s[-d:] + s[0:-d]
+
+print(left_rotation)
+
+print()
+
+print(right_rotation)
+
+'''Given a 26 letter character set, which is equivalent to character set of English alphabet i.e. (abcd….xyz) and act as a relation. 
+We are also given several sentences and we have to translate them with the help of given new character set. '''
+
+old = 'abcdefghijklmnopqrstuvwxyz'
+new = 'qwertyuiopasdfghjklzxcvbnm'
+s = "egrt"
+#Output = 'geek'
+
+for i in s:
+    ind = new.index(i)
+    print(old[ind], end = "")
+    
+'''groupby method to remove all consecutive duplicates'''
+
+ import itertools
+for (key,group) in itertools.groupby(numbers):
+    print (key,list(group))
+
+
