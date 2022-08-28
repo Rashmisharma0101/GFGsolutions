@@ -757,3 +757,55 @@ for (key,group) in itertools.groupby(numbers):
     print (key,list(group))
 
 
+'''Given the string, we have to remove the ith indexed character from the string.
+
+Input : Geek
+        i = 1
+Output : Gek '''
+
+s = 'Peter'
+i = 4
+
+print(s[0:i] + s[i+1:])
+
+'''Permutation of a given string'''
+from itertools import permutations
+
+s = 'abc'
+
+string = permutations(s)
+
+for i in string:
+    print("".join(i))
+    
+    
+ '''Given a string, print and count all prefixes in which 
+first alphabet has greater frequency than second alphabet.
+
+Input : string1 = "geek", 
+        alphabet1 = "e", alphabet2 = "k"
+Output :
+ge
+gee
+geek
+3 '''
+
+s1 = 'geek'
+a1 = 'e'
+a2 = 'k'
+c = 1
+
+l1 = []
+
+while c <= len(s1):
+    l1.append((s1[0:c]))
+    c = c + 1
+
+count = 0
+
+for i in l1:
+    if i.count(a1) > i.count(a2):
+        #print(i)
+        count = count + 1
+        
+print(count)
