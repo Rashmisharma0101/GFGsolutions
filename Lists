@@ -205,3 +205,107 @@ for i in l:
             l1.append(i)
             
 print(l1)
+
+'''Replace index elements with elements in Other List
+The original list 1 is : [‘Gfg’, ‘is’, ‘best’]
+The original list 2 is : [0, 1, 2, 1, 0, 0, 0, 2, 1, 1, 2, 0]
+output: [‘Gfg’, ‘is’, ‘best’, ‘is’, ‘Gfg’, ‘Gfg’, ‘Gfg’, ‘best’, ‘is’, ‘is’, ‘best’, ‘Gfg’]'''
+
+l1  = ['Gfg', 'is', 'best']
+l2  = [0, 1, 2, 1, 0, 0, 0, 2, 1, 1, 2, 0]
+
+l3  = []
+
+for i in l2:
+    if i == 0:
+        l3.append('Gfg')
+    elif i == 1:
+        l3.append('is')
+    elif i == 2:
+        l3.append('best')
+        
+print(l3)
+
+'''Retain records with N occurrences of K
+
+Input : test_list = [(4, 5, 5, 4), (5, 4, 3)], K = 5, N = 2 
+Output : [(4, 5, 5, 4)]
+Input : test_list = [(4, 5, 5, 4), (5, 4, 3)], K = 5, N = 3 
+Output : [] '''
+
+l = [(4, 5, 5, 4), (5, 4, 3)]
+k = 5
+n = 2
+l1 = []
+for i in l:
+    for j in range(len(i)):
+        if i.count(i[j]) == n and i[j] == k and i not in l1:
+            l1.append(i)
+            
+print(l1)
+
+'''Sort the list according to the column using lambda
+
+Input :
+array = [[‘java’, 1995], [‘c++’, 1983], [‘python’, 1989]]
+Output :
+Sorted array specific to column 0, [[‘c++’, 1983], [‘java’, 1995], [‘python’, 1989]]
+Sorted array specific to column 1, [[‘c++’, 1983], [‘python’, 1989], [‘java’, 1995]]'''
+
+l = [['java', 1995], ['c++', 1983], ['python', 1989]]
+for i in range(len(l[0])):
+    l1 = sorted(l, key = lambda x:x[i])
+
+print(l1)
+
+'''Reverse All Strings in String List
+The original list is : ['geeks', 'for', 'geeks', 'is', 'best']
+The reversed string list is : ['skeeg', 'rof', 'skeeg', 'si', 'tseb']'''
+
+l = ['geeks', 'for', 'geeks', 'is', 'best']
+
+l1 = []
+
+for i in l:
+    l1.append(i[::-1])
+
+print(l1)
+
+'''Given list of phrases, extract all the Strings with begin with character K.
+
+Input : test_list = [“Gfg is good for learning”, “Gfg is for geeks”, “I love G4G”], K = l
+Output : [‘learning’, ‘love’]'''
+
+l =  ['Gfg is best', 'Gfg is for geeks', 'I love G4G']
+
+k  = 'G'
+l1  = []
+
+for i in l:
+    if (i.startswith(k)):
+        l1.append(i)
+    
+print(l1)
+
+'''l = ['Gfg is best', 'for Geeks', 'Preparing']
+output = ['Gfg', 'is', 'best', 'for', 'Geeks', 'Preparing']'''
+
+l = ['Gfg is best', 'for Geeks', 'Preparing']
+l1, l2  = [], []
+for i in l:
+    sub = (i.split())
+    l1.extend(sub)
+print(l1)
+
+
+redo - add spce when encounter capitals
+l = ['gfgBest', 'forGeeks', 'andComputerScience']
+#Output : ['gfg Best', 'for Geeks', 'and Computer Science']
+l1  = []
+for i in l:
+    for j in i:
+        if j.isupper():
+            index = i.index(j)
+            l1.append((i[0:index], j[index:]))
+        
+print(l1)
