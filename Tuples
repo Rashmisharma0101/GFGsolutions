@@ -1,0 +1,102 @@
+''' print unique rows by row - tuple '''
+
+l  = [[0, 1, 0, 0, 1],
+             [1, 0, 1, 1, 0],
+             [0, 1, 0, 0, 1],
+             [1, 1, 1, 0, 0]]
+
+l = map(tuple, l)
+
+res  =  set(l)
+for i in res:
+    print(i)
+
+
+'''Given a string and a number N, we need to mirror the characters from the N-th 
+position up to the length of the string in alphabetical order. 
+In mirror operation, we change ‘a’ to ‘z’, ‘b’ to ‘y’, and so on.
+Input : N = 3
+        paradox
+Output : paizwlc '''
+
+s = 'paradox'
+
+index = 3
+
+alpha = 'abcdefghijklmnopqrstuvwxyz'
+
+alphareverse = alpha[::-1]
+
+print(alphareverse)
+
+s1  = s[index-1:]
+print(s1)  #----> 'radox'
+s2 = []
+for i in range(len(s1)):
+    for j in range(len(alpha)):
+        if s1[i] == alpha[j]:
+            s2.append(str(alpha.index(alpha[j])))
+            
+print(s2)
+
+s3  = ''
+for i in s2:
+    s3 = s3 + alphareverse[int(i)]
+print(s3)
+
+print(s[0:index-1]+s3)  
+
+'''Input : str = "geeksforgeeks"
+Output : String with characters occurring once:
+"for".
+String with characters occurring multiple times:
+"egks'''
+
+s = 'geeksforgeeks'
+
+once  = ''
+twice  = ''
+
+for i in s:
+    if s.count(i) == 1:
+        once  = once  + i
+    elif s.count(i) > 1 and i not in twice:
+        twice = twice  + i
+        
+print('String with characters occurring once:', once)
+
+print('String with characters occurring multiple times:', "".join(sorted(twice)))
+
+''' reverse a tuple'''
+
+t = ('z','a','d','f','g','e','e','k')
+
+print(t[::-1])
+
+
+'''Given two float numbers, multiply the fractional part and return the answer.'''
+
+import math
+
+a = math.modf(11.2) 
+b = math.modf(12.3)
+
+print(a[0]*b[0])
+
+'''sort a tuple by its integer part
+output = [('gaurav', 12), ('suraj', 20), ('ashish', 30), ('anand', 34), ('akash', 90), ('akhil', 425)]'''
+
+l = [("akash", 90), ("gaurav", 12), ("anand", 34), ("suraj", 20), ("akhil", 425), ("ashish", 30)]
+
+d = dict(l)
+
+print(d)
+l1 = []
+ans   = {k: v for k, v in sorted(d.items(), key=lambda item: item[1])}
+
+for i, j in ans.items():
+    l1.append((i,j))
+    
+print(l1)
+
+
