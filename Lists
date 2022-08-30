@@ -309,3 +309,100 @@ for i in l:
             l1.append((i[0:index], j[index:]))
         
 print(l1)
+
+'''Given two lists, extract all elements from the first list, whose corresponding index in the second list contains the required substring.'''
+l1 =  ['Gfg', 'is', 'not', 'best', 'and', 'not', 'for', 'CS']
+l2 =  ['Its ok', 'all ok', 'wrong', 'looks ok', 'ok', 'wrong', 'ok', 'thats ok']
+#The extracted list : ['Gfg', 'is', 'best', 'and', 'for', 'CS']
+index, l = [], []
+for i in range(len(l2)):
+    if 'ok' in l2[i]:
+        index.append(i)
+        
+print(index)
+
+for i in index:
+    l.append(l1[i])
+    
+print(l)
+
+''''''The original list is : [['g', 'f', 'g'], ['i', 's'], ['b', 'e', 's', 't']]
+The String after join : gfgisbest'''
+s = ''
+l  = [['g', 'f', 'g'], ['i', 's'], ['b', 'e', 's', 't']]
+for i in l:
+    for j in i:
+        s = s + j
+        
+print(s)
+
+''''Count Strings with substring String List
+
+The original list is : ['GeeksforGeeks', 'Geeky', 'Computers', 'Algorithms'], subs = 'Geek'
+All strings count with given substring are : 2'''
+
+l = ['GeeksforGeeks', 'Geeky', 'Computers', 'Algorithms']
+c = 0
+subs = 'Geek'
+for i in l:
+    if subs in i:
+        c = c + 1
+        
+print(c)
+
+'''The original list 1 is : ['GeeksforGeeks', 'is', 'Best', 'For', 'Geeks', 'And', 'Computer Science']
+The original list 2 is : [['Geeks', 'Gks'], ['And', '&'], ['Computer', 'Comp']]
+The list after replacement : ['GksforGks', 'is', 'Best', 'For', 'Gks', '&', 'Comp Science']'''
+
+l1 = ['GeeksforGeeks', 'is', 'Best', 'For', 'Geeks', 'And', 'Computer Science']
+
+l2 = [['Geeks', 'Gks'], ['And', '&'], ['Computer', 'Comp']]
+sub = dict(l2)
+print(sub)
+for key, val in sub.items():
+    for idx, ele in enumerate(l1):
+        if key in ele:
+            l1[idx] = ele.replace(key, val)
+            
+print(l1)
+
+
+'''Input : test_list = [“Good at 9”, “Wake at 7”, “Work till 6”, “Sleep at 11”], subord_list = [“11”, “7”, “9”, “6”] 
+Output : [‘Sleep at 11’, ‘Wake at 7’, ‘Good at 9’, ‘Work till 6’] 
+Explanation : Strings sorted by substring presence. '''
+
+l = ['Good at 4', 'Wake at 7', 'Work till 6', 'Sleep at 11']
+
+l1 = ['6', '7', '4', '11']
+l2  = []
+
+for i in l1:
+    for j in l:
+        if i in j:
+            l2.append(j)
+        
+print(l2)
+
+'''Test if Substring occurs in specific position
+
+l = "Gfg is best"
+sub = "best"
+
+i, j = 7, 11
+
+s = len(l)
+
+if sub in l:
+    ans  = l.index(sub)
+    
+print(ans)
+
+if i == ans:
+    print(True)
+    
+else:
+    print(False)
+    
+or
+
+l[i : j]  == sub
