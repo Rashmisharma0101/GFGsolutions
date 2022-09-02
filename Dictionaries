@@ -1,1 +1,15 @@
+''' accessing dictionary elements 
+output
+gfg
+rate : 5
+remark : good
+cs
+rate : 3
+'''
+
+d = {'gfg' : {'rate' : 5, 'remark' : 'good'}, 'cs' : {'rate' : 3}}
+for i in d:
+    print(i)
+    for l in d[i]:
+        print(l, ":", d[i][l])
 
