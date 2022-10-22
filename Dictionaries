@@ -13,3 +13,74 @@ for i in d:
     for l in d[i]:
         print(l, ":", d[i][l])
 
+''' finding majority element'''
+
+arr = [3,3,4,2,4,4,2,4,4]
+from collections import Counter
+freq = Counter(arr)
+print(freq)
+flag  = 0
+for  key, value in freq.items():
+    if value > (len(arr)//2):
+        print("majority element is ", key)
+        flag = 1
+    else:
+        continue
+if not flag:
+    
+        print("no majority element")
+
+'''Given an array of names of candidates in an election. 
+A candidate name in the array represents a vote cast to the candidate. 
+Print the name of candidates received Max vote. If there is tie,
+ print a lexicographically smaller name.
+
+Examples: 
+
+Input :  votes[] = {"john", "johnny", "jackie", 
+                    "johnny", "john", "jackie", 
+                    "jamie", "jamie", "john",
+                    "johnny", "jamie", "johnny", 
+                    "john"};
+Output : John
+We have four Candidates with name as 'John', 
+'Johnny', 'jamie', 'jackie'. The candidates
+John and Johny get maximum votes. Since John
+is alphabetically smaller, we print it.'''
+
+votes = ["johnny", "jackie", 
+                    "johnny"]
+
+from collections import Counter
+
+d1 = Counter(votes)
+
+values = d1.values()
+
+#print(values)
+maximum =  max(values)
+
+l1   = []
+for i, j in d1.items():
+    if j == maximum:
+        l1.append(i)
+  
+if len(l1) == 1:    
+    print(l1)
+
+elif len(l1) > 1:
+    for i in l1:
+        for j in l1:
+            if i < j:
+                print(i)
+        
+    
+last few lines can be this, instead of two for loops, using sorted()
+
+'''if len(l1) == 1:    
+    print(l1)
+
+elif len(l1) > 1:
+    l2 = sorted(l1)
+    
+    print(l2[0])'''
